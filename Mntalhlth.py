@@ -14,18 +14,8 @@ st.title("Sentiment Analysis for Mental Health  ")
 st.write('This app performs sentiment analysis on mental health statements.')
 
 
-# Example file paths
-mh = 'C:\\Users\\gorla\\streamlit\\mh.pkl'
-bow = 'C:\\Users\\gorla\\streamlit\\bow1.pkl'
-
-try:
-    model = pickle.load(open(mh, 'rb'))
-    bow = pickle.load(open(bow1, 'rb'))
-except FileNotFoundError as e:
-    st.error(f"File not found: {e}")
-except Exception as e:
-    st.error(f"An error occurred: {e}")
-
+model = pickle.load(open("mh.pkl",'rb'))
+bow = pickle.load(open("bow1.pkl",'rb'))
 
 # Define the status labels (Ensure this matches the output labels of your model)
 status_labels = {
