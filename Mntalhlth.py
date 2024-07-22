@@ -14,9 +14,15 @@ st.title("Sentiment Analysis for Mental Health  ")
 st.write('This app performs sentiment analysis on mental health statements.')
 
 
+# Example file path check
+model_path = 'C:\\Users\\gorla\\streamlit\\mh.pkl'
+vectorizer_path = 'C:\\Users\\gorla\\streamlit\\bow1.pkl'
+
 try:
-    model = pickle.load(open(r"C:\Users\gorla\streamlit\mh.pkl",'rb'))
-    bow = pickle.load(open(r"C:\Users\gorla\streamlit\bow1.pkl",'rb'))
+    model = pickle.load(open(model_path, 'rb'))
+    bow = pickle.load(open(vectorizer_path, 'rb'))
+except FileNotFoundError as e:
+    st.error(f"File not found: {e}")
 except Exception as e:
     st.error(f"An error occurred: {e}")
 
